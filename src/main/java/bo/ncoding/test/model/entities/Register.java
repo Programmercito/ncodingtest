@@ -1,8 +1,6 @@
 package bo.ncoding.test.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.Basic;
@@ -24,41 +22,9 @@ import org.hibernate.annotations.GenericGenerator;
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
  */
-@Entity
-@Table(name = "user")
-
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = true)
-    @Column(name = "id_user")
-
-    private long idUser;
-
-    @Column(name = "mail", unique = true)
+public class Register {
     private String mail;
-    @Column(name = "password")
     private String password;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
-    private UserDetails userdetails;
-
-    /**
-     * @return the idUser
-     */
-    public long getIdUser() {
-        return idUser;
-    }
-
-    /**
-     * @param idUser the idUser to set
-     */
-    @JsonIgnore
-    @JsonProperty(value = "id_user")
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
-    }
 
     /**
      * @return the mail
@@ -77,8 +43,6 @@ public class User {
     /**
      * @return the password
      */
-    @JsonIgnore
-    @JsonProperty(value = "password")
     public String getPassword() {
         return password;
     }
@@ -88,20 +52,5 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    /**
-     * @return the userDetails
-     */
-    @JsonInclude(Include.NON_NULL)
-    public UserDetails getUserDetails() {
-        return userdetails;
-    }
-
-    /**
-     * @param userDetails the userDetails to set
-     */
-    public void setUserDetails(UserDetails userDetails) {
-        this.userdetails = userDetails;
     }
 }

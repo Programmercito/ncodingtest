@@ -17,9 +17,39 @@ import javax.persistence.Table;
 public class Courses {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = true)
     @Column(name = "id_course")
-    private String idCourse;
+    private long idCourse;
+    @Column(name = "name")
+    private String name;
+
+    /**
+     * @return the idCourse
+     */
+    public long getIdCourse() {
+        return idCourse;
+    }
+
+    /**
+     * @param idCourse the idCourse to set
+     */
+    public void setIdCourse(long idCourse) {
+        this.idCourse = idCourse;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

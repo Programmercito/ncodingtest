@@ -1,7 +1,8 @@
 package bo.ncoding.test.web.controllers;
 
-import bo.ncoding.test.model.entities.Register;
 import bo.ncoding.test.model.entities.User;
+import bo.ncoding.test.model.entities.UserDetails;
+import bo.ncoding.test.model.services.interfaces.UserDetailsService;
 import bo.ncoding.test.model.services.interfaces.UserService;
 import bo.ncoding.test.utils.EncryptNcoding;
 import bo.ncoding.test.utils.SystemController;
@@ -18,26 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(path = "/ncoding")
-public class UserController extends SystemController {
+public class UserDetailsController extends SystemController {
 
     @Autowired
-    UserService modelo;
+    UserDetailsService modelo;
 
-    @GetMapping(path = "/user")
-    public String ping() {
-        return "ok";
-    }
-
-    @PostMapping(path = "/user", consumes = "application/json;charset=UTF-8", produces = "application/json")
-    public User persist(@RequestBody Register register) {
-
-        register.setPassword(EncryptNcoding.encript(register.getPassword()));
-        User user = new User();
-        user.setMail(register.getMail());
-        user.setPassword(register.getPassword());
-
-        user = modelo.persist(user);
-        return user;
+    @PostMapping(path = "/userdetails", consumes = "application/json;charset=UTF-8", produces = "application/json")
+    public UserDetails persist(@RequestBody UserDetails userd) {
+        return modelo.persist(userd);
     }
 
 }

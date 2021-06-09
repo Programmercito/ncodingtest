@@ -1,5 +1,6 @@
 package bo.ncoding.test.model.services;
 
+import bo.ncoding.test.model.entities.UserDetails;
 import bo.ncoding.test.model.repositorys.CoursesRepository;
 import bo.ncoding.test.model.repositorys.UserDetailsRepository;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
@@ -16,5 +17,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserDetailsRepository data;
+
+    @Override
+    public UserDetails persist(UserDetails userd) {
+        return data.save(userd);
+    }
     
 }
