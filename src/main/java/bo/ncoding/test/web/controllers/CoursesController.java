@@ -32,7 +32,7 @@ public class CoursesController extends SystemController {
         List<Course> lista= modelo.getListCourses(idUser);
         return lista;
     }
-    @GetMapping(path = "/courses", produces = "application/json")
+    @GetMapping(path = "/allcourses", produces = "application/json")
     public Iterable<Course> getListCourses() {
         Iterable<Course> lista= modelo.getListCourses();
         return lista;
