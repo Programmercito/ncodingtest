@@ -1,6 +1,8 @@
 package bo.ncoding.test.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -26,23 +28,28 @@ public class Courses {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = true)
     @Column(name = "id_course")
-    private long idCourse;
+    private Integer idCourse;
     @Column(name = "name")
     private String name;
-    @OneToMany(mappedBy="course",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(
+            mappedBy = "course",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
     private List<Enroll> enrolls;
 
     /**
      * @return the idCourse
      */
-    public long getIdCourse() {
+    public Integer getIdCourse() {
         return idCourse;
     }
 
     /**
      * @param idCourse the idCourse to set
      */
-    public void setIdCourse(long idCourse) {
+    public void setIdCourse(Integer idCourse) {
         this.idCourse = idCourse;
     }
 

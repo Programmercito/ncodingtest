@@ -1,5 +1,7 @@
 package bo.ncoding.test.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -14,13 +16,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
  */
 @Entity
-@Table(name = "enroll")
+@Table(name = "enroll", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"id_user", "id_course"})})
 
 public class Enroll {
 
@@ -29,12 +33,16 @@ public class Enroll {
     @Basic(optional = true)
     @Column(name = "id_enroll")
     private long idEnroll;
-    @Column(name = "id_user")
-    private long idUser;
-    @OneToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(name = "id_user")
     private User user;
-    @JoinColumn(name = "id_course", referencedColumnName = "id_course")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(name = "id_course")
     private Courses course;
 
     /**
@@ -50,6 +58,37 @@ public class Enroll {
     public void setIdEnroll(long idEnroll) {
         this.idEnroll = idEnroll;
     }
+
+    /**
+     * @return the idUser
+     */
+    public Integer getIdUser() {
+        return this.getUser().getIdUser();
+    }
+
+    /**
+     * @param idUser the idUser to set
+     */
+    public void setIdUser(Integer idUser) {
+        this.setUser(new User());
+        this.getUser().setIdUser(idUser);
+    }
+
+    /**
+     * @return the idCourse
+     */
+    public Integer getIdCourse() {
+        return this.getCourse().getIdCourse();
+    }
+
+    /**
+     * @param idCourse the idCourse to set
+     */
+    public void setIdCourse(Integer idCourse) {
+        this.setCourse(new Courses());
+        this.getCourse().setIdCourse(idCourse);
+    }
+
     /**
      * @return the user
      */
@@ -77,5 +116,4 @@ public class Enroll {
     public void setCourse(Courses course) {
         this.course = course;
     }
-
 }
