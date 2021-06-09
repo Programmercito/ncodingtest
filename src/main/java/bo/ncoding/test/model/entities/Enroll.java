@@ -1,6 +1,7 @@
 package bo.ncoding.test.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 import javax.persistence.Basic;
@@ -38,6 +39,7 @@ public class Enroll {
             fetch = FetchType.EAGER
     )
     @JoinColumn(name = "id_user")
+    @JsonIgnore
     private User user;
     @ManyToOne(
             fetch = FetchType.LAZY
