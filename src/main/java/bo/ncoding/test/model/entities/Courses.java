@@ -1,5 +1,6 @@
 package bo.ncoding.test.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -57,6 +58,21 @@ public class Courses {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * @return the enrolls
+     */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public List<Enroll> getEnrolls() {
+        return enrolls;
+    }
+
+    /**
+     * @param enrolls the enrolls to set
+     */
+    public void setEnrolls(List<Enroll> enrolls) {
+        this.enrolls = enrolls;
     }
 
 }
