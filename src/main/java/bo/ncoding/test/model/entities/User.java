@@ -49,7 +49,6 @@ public class User {
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
-    
     private List<Enroll> enrolls;
 
     /**

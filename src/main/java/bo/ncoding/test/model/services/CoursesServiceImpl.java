@@ -26,5 +26,9 @@ public class CoursesServiceImpl implements CoursesService {
     public List<Courses> getListCourses(Integer idUser) {
         return data.getListCourses(idUser);
     }
+    @Override
+    public Iterable<Courses> getListCourses() {
+        return data.findAll();
+    }
 
 }
