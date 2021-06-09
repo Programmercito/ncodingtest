@@ -29,7 +29,8 @@ public class EnrollServiceImpl implements EnrollService {
     @Override
     public void delete(List<Enroll> enrolls) {
         for (Enroll en : enrolls) {
-            data.delete(en);
+            Enroll este=data.findById(en.getIdEnroll()).get();
+            data.delete(este);
         }
     }
 

@@ -30,7 +30,7 @@ public class Enroll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = true)
     @Column(name = "id_enroll")
-    private long idEnroll;
+    private Integer idEnroll;
 
     @ManyToOne(
             fetch = FetchType.LAZY
@@ -49,14 +49,14 @@ public class Enroll {
     /**
      * @return the idEnroll
      */
-    public long getIdEnroll() {
+    public Integer getIdEnroll() {
         return idEnroll;
     }
 
     /**
      * @param idEnroll the idEnroll to set
      */
-    public void setIdEnroll(long idEnroll) {
+    public void setIdEnroll(Integer idEnroll) {
         this.idEnroll = idEnroll;
     }
 
