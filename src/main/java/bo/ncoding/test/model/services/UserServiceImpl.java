@@ -20,5 +20,10 @@ public class UserServiceImpl implements UserService {
     public User persist(User user){
         return data.save(user);
     }
+
+    @Override
+    public User find(Integer id) {
+        return data.findById(id).get();
+    }
     
 }

@@ -1,7 +1,6 @@
 package bo.ncoding.test.model.services.interfaces;
 
 import bo.ncoding.test.model.entities.Enroll;
-import bo.ncoding.test.model.entities.UserDetails;
 
 /**
  *

@@ -1,9 +1,7 @@
 package bo.ncoding.test.web.controllers;
 
 import bo.ncoding.test.model.entities.Courses;
-import bo.ncoding.test.model.entities.UserDetails;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
-import bo.ncoding.test.model.services.interfaces.UserDetailsService;
 import bo.ncoding.test.utils.SystemController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

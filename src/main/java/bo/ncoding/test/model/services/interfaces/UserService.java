@@ -9,4 +9,5 @@ import bo.ncoding.test.model.entities.User;
 public interface UserService {
 
     public User persist(User user);
+    public User find(Integer id);
 }

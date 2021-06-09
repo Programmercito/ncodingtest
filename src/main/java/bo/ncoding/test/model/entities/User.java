@@ -31,26 +31,73 @@ import org.hibernate.annotations.GenericGenerator;
 
 public class User {
 
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the lastname
+     */
+    public String getLastname() {
+        return lastname;
+    }
+
+    /**
+     * @param lastname the lastname to set
+     */
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    /**
+     * @return the adress
+     */
+    public String getAdress() {
+        return adress;
+    }
+
+    /**
+     * @param adress the adress to set
+     */
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = true)
     @Column(name = "id_user")
 
-    private long idUser;
+    private Integer idUser;
 
     @Column(name = "mail", unique = true)
     private String mail;
     @Column(name = "password")
     private String password;
-    @OneToOne(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private UserDetails userDetails;
-    @OneToMany(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(name = "name")
+    private String name;
+    @Column(name = "last_name")
+    private String lastname;
+    @Column(name = "adress")
+    private String adress;
+
+    @OneToMany(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Enroll> enrolls;
 
     /**
      * @return the idUser
      */
-    public long getIdUser() {
+    public Integer getIdUser() {
         return idUser;
     }
 
@@ -59,7 +106,7 @@ public class User {
      */
     @JsonIgnore
     @JsonProperty(value = "id_user")
-    public void setIdUser(long idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
@@ -91,21 +138,6 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    /**
-     * @return the userDetails
-     */
-    @JsonInclude(Include.NON_NULL)
-    public UserDetails getUserDetails() {
-        return userDetails;
-    }
-
-    /**
-     * @param userDetails the userDetails to set
-     */
-    public void setUserDetails(UserDetails userDetails) {
-        this.userDetails = userDetails;
     }
 
     /**

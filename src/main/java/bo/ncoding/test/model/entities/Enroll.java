@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -28,12 +29,9 @@ public class Enroll {
     @Basic(optional = true)
     @Column(name = "id_enroll")
     private long idEnroll;
-    @Column(name = "id_course")
-    private long idCourse;
     @Column(name = "id_user")
     private long idUser;
-    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
     @JoinColumn(name = "id_course", referencedColumnName = "id_course")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -52,35 +50,6 @@ public class Enroll {
     public void setIdEnroll(long idEnroll) {
         this.idEnroll = idEnroll;
     }
-
-    /**
-     * @return the idCourse
-     */
-    public long getIdCourse() {
-        return idCourse;
-    }
-
-    /**
-     * @param idCourse the idCourse to set
-     */
-    public void setIdCourse(long idCourse) {
-        this.idCourse = idCourse;
-    }
-
-    /**
-     * @return the idUser
-     */
-    public long getIdUser() {
-        return idUser;
-    }
-
-    /**
-     * @param idUser the idUser to set
-     */
-    public void setIdUser(long idUser) {
-        this.idUser = idUser;
-    }
-
     /**
      * @return the user
      */
