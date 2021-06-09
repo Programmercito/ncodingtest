@@ -32,10 +32,10 @@ public class Enroll {
     private long idCourse;
     @Column(name = "id_user")
     private long idUser;
-    @JoinColumn(name = "fk_user_enroll", referencedColumnName = "id_user")
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
-    @JoinColumn(name = "fk_course_enroll", referencedColumnName = "id_course")
+    @JoinColumn(name = "id_course", referencedColumnName = "id_course")
     @ManyToOne(fetch = FetchType.LAZY)
     private Courses course;
 

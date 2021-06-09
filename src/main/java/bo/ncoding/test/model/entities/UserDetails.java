@@ -29,7 +29,7 @@ public class UserDetails {
     private String lastname;
     @Column(name = "adress")
     private String adress;
-    @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
