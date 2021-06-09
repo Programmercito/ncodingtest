@@ -40,7 +40,7 @@ public class Enroll {
     )
     @JoinColumn(name = "id_course")
     
-    private Courses course;
+    private Course course;
 
     /**
      * @return the idEnroll
@@ -82,7 +82,7 @@ public class Enroll {
      * @param idCourse the idCourse to set
      */
     public void setIdCourse(Integer idCourse) {
-        this.setCourse(new Courses());
+        this.setCourse(new Course());
         this.getCourse().setIdCourse(idCourse);
     }
 
@@ -103,14 +103,14 @@ public class Enroll {
     /**
      * @return the course
      */
-    public Courses getCourse() {
+    public Course getCourse() {
         return course;
     }
 
     /**
      * @param course the course to set
      */
-    public void setCourse(Courses course) {
+    public void setCourse(Course course) {
         this.course = course;
     }
 }

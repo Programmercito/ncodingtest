@@ -1,6 +1,6 @@
 package bo.ncoding.test.model.repositorys;
 
-import bo.ncoding.test.model.entities.Courses;
+import bo.ncoding.test.model.entities.Course;
 import bo.ncoding.test.model.entities.Enroll;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;

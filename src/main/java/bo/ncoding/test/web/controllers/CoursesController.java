@@ -1,6 +1,6 @@
 package bo.ncoding.test.web.controllers;
 
-import bo.ncoding.test.model.entities.Courses;
+import bo.ncoding.test.model.entities.Course;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
 import bo.ncoding.test.utils.SystemController;
 import java.util.List;
@@ -23,18 +23,18 @@ public class CoursesController extends SystemController {
     CoursesService modelo;
 
     @PostMapping(path = "/courses", consumes = "application/json;charset=UTF-8", produces = "application/json")
-    public Courses persist(@RequestBody Courses course) {
+    public Course persist(@RequestBody Course course) {
         return modelo.persist(course);
     }
 
     @GetMapping(path = "/courses", produces = "application/json")
-    public List<Courses> getListCourses(Integer idUser) {
-        List<Courses> lista= modelo.getListCourses(idUser);
+    public List<Course> getListCourses(Integer idUser) {
+        List<Course> lista= modelo.getListCourses(idUser);
         return lista;
     }
     @GetMapping(path = "/courses", produces = "application/json")
-    public Iterable<Courses> getListCourses() {
-        Iterable<Courses> lista= modelo.getListCourses();
+    public Iterable<Course> getListCourses() {
+        Iterable<Course> lista= modelo.getListCourses();
         return lista;
     }
 

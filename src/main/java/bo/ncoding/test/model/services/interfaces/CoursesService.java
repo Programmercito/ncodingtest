@@ -1,6 +1,6 @@
 package bo.ncoding.test.model.services.interfaces;
 
-import bo.ncoding.test.model.entities.Courses;
+import bo.ncoding.test.model.entities.Course;
 import java.util.List;
 
 /**
@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface CoursesService {
 
-    public Courses persist(Courses course);
+    public Course persist(Course course);
 
-    public List<Courses> getListCourses(Integer idUser);
+    public List<Course> getListCourses(Integer idUser);
 
-    public Iterable<Courses> getListCourses();
+    public Iterable<Course> getListCourses();
 }

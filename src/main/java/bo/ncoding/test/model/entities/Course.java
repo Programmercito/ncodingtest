@@ -23,7 +23,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "courses")
-public class Courses {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

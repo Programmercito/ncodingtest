@@ -1,7 +1,7 @@
 package bo.ncoding.test.web.controllers;
 
 import bo.ncoding.test.model.dtos.Response;
-import bo.ncoding.test.model.entities.Courses;
+import bo.ncoding.test.model.entities.Course;
 import bo.ncoding.test.model.entities.Enroll;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
 import bo.ncoding.test.model.services.interfaces.EnrollService;

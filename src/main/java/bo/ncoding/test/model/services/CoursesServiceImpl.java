@@ -1,6 +1,6 @@
 package bo.ncoding.test.model.services;
 
-import bo.ncoding.test.model.entities.Courses;
+import bo.ncoding.test.model.entities.Course;
 import bo.ncoding.test.model.repositorys.CoursesRepository;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
 import java.util.List;
@@ -18,16 +18,16 @@ public class CoursesServiceImpl implements CoursesService {
     private CoursesRepository data;
 
     @Override
-    public Courses persist(Courses course) {
+    public Course persist(Course course) {
         return data.save(course);
     }
 
     @Override
-    public List<Courses> getListCourses(Integer idUser) {
+    public List<Course> getListCourses(Integer idUser) {
         return data.getListCourses(idUser);
     }
     @Override
-    public Iterable<Courses> getListCourses() {
+    public Iterable<Course> getListCourses() {
         return data.findAll();
     }
 
