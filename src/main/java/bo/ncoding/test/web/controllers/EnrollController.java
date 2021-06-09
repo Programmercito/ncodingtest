@@ -31,8 +31,9 @@ public class EnrollController extends SystemController {
      * @return Enroll in the database
      */
     @PostMapping(path = "/enroll", consumes = "application/json;charset=UTF-8", produces = "application/json")
-    public Enroll persist(@RequestBody Enroll course) {
-        return modelo.persist(course);
+    public Enroll persist(@RequestBody Enroll rool) {
+        rool.setIdEnroll(Integer.MIN_VALUE);
+        return modelo.persist(rool);
     }
 
     /**

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(path = "/ncoding")
 public class UserController extends SystemController {
-
+    
     @Autowired
     UserService modelo;
 
@@ -46,15 +46,16 @@ public class UserController extends SystemController {
     @PostMapping(path = "/user", consumes = "application/json;charset=UTF-8", produces = "application/json")
     public User persist(@RequestBody Register register
     ) {
-
+        
         register.setPassword(EncryptNcoding.encript(register.getPassword()));
         User user = new User();
         user.setMail(register.getMail());
         user.setPassword(register.getPassword());
-
+        user.setIdUser(Integer.MIN_VALUE);
         user = modelo.persist(user);
         return user;
     }
+
     /**
      * List of users with courses
      *
@@ -71,5 +72,5 @@ public class UserController extends SystemController {
         u.setLastname(register.getLastname());
         return modelo.persist(u);
     }
-
+    
 }
