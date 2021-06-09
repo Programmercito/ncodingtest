@@ -1,11 +1,14 @@
 package bo.ncoding.test.web.controllers;
 
+import bo.ncoding.test.model.dtos.Response;
 import bo.ncoding.test.model.entities.Courses;
 import bo.ncoding.test.model.entities.Enroll;
 import bo.ncoding.test.model.services.interfaces.CoursesService;
 import bo.ncoding.test.model.services.interfaces.EnrollService;
 import bo.ncoding.test.utils.SystemController;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,4 +30,11 @@ public class EnrollController extends SystemController {
         return modelo.persist(course);
     }
 
+    @DeleteMapping(path = "/enroll", consumes = "application/json;charset=UTF-8", produces = "application/json")
+    public Response delete(@RequestBody List<Enroll> list) {
+        Response response = new Response();
+        modelo.delete(list);
+        response.setMessage("deleted");
+        return response;
+    }
 }

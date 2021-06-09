@@ -12,7 +12,7 @@ public interface EnrollService {
 
     public Enroll persist(Enroll enroll);
 
-    public Response delete(List<Enroll> enrolls);
+    public void delete(List<Enroll> enrolls);
 
     
 }

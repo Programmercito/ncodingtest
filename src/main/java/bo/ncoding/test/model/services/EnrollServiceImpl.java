@@ -24,13 +24,10 @@ public class EnrollServiceImpl implements EnrollService {
     }
 
     @Override
-    public Response delete(List<Enroll> enrolls) {
+    public void delete(List<Enroll> enrolls) {
         for (Enroll en : enrolls) {
             data.delete(en);
         }
-        Response res = new Response();
-        res.setMessage("deleted");
-        return res;
     }
 
  
