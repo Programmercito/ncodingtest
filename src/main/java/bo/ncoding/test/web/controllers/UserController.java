@@ -33,10 +33,8 @@ public class UserController extends SystemController {
      * @return User and the all courses
      */
     @GetMapping(path = "/user")
-    public User list(Integer id) {
-        User u = modelo.find(id);
-
-        return u;
+    public User listCourses(Integer id) {
+        return modelo.find(id);
     }
 
     /**

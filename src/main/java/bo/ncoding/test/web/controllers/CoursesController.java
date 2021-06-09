@@ -42,8 +42,7 @@ public class CoursesController extends SystemController {
      */
     @GetMapping(path = "/courses", produces = "application/json")
     public List<Course> getListCourses(Integer idUser) {
-        List<Course> lista = modelo.getListCourses(idUser);
-        return lista;
+        return modelo.getListCourses(idUser);
     }
 
     /**
@@ -53,8 +52,7 @@ public class CoursesController extends SystemController {
      */
     @GetMapping(path = "/allcourses", produces = "application/json")
     public Iterable<Course> getListCourses() {
-        Iterable<Course> lista = modelo.getListCourses();
-        return lista;
+        return modelo.getListCourses();
     }
 
 }
