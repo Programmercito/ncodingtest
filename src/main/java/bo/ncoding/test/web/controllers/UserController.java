@@ -23,11 +23,6 @@ public class UserController extends SystemController {
     @Autowired
     UserService modelo;
 
-    @GetMapping(path = "/user")
-    public String ping() {
-        return "ok";
-    }
-
     @PostMapping(path = "/user", consumes = "application/json;charset=UTF-8", produces = "application/json")
     public User persist(@RequestBody Register register) {
 

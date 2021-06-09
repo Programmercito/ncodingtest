@@ -42,11 +42,9 @@ public class User {
     private String mail;
     @Column(name = "password")
     private String password;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
+    @OneToOne(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private UserDetails userDetails;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_user")
+    @OneToMany(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Enroll> enrolls;
 
     /**

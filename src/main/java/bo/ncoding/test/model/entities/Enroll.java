@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,9 +32,12 @@ public class Enroll {
     private long idCourse;
     @Column(name = "id_user")
     private long idUser;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_course")
-    private List<Courses> courses;
+    @JoinColumn(name = "fk_user_enroll", referencedColumnName = "id_user")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+    @JoinColumn(name = "fk_course_enroll", referencedColumnName = "id_course")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Courses course;
 
     /**
      * @return the idEnroll
@@ -78,17 +82,31 @@ public class Enroll {
     }
 
     /**
-     * @return the courses
+     * @return the user
      */
-    public List<Courses> getCourses() {
-        return courses;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param courses the courses to set
+     * @param user the user to set
      */
-    public void setCourses(List<Courses> courses) {
-        this.courses = courses;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    /**
+     * @return the course
+     */
+    public Courses getCourse() {
+        return course;
+    }
+
+    /**
+     * @param course the course to set
+     */
+    public void setCourse(Courses course) {
+        this.course = course;
     }
 
 }

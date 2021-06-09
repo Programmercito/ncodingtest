@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -26,7 +29,8 @@ public class UserDetails {
     private String lastname;
     @Column(name = "adress")
     private String adress;
-    @OneToOne(mappedBy = "userDetails")
+    @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     /**
