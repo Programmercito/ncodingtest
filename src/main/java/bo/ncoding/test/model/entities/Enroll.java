@@ -2,6 +2,7 @@ package bo.ncoding.test.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,11 +37,13 @@ public class Enroll {
     )
     @JoinColumn(name = "id_user")
     @JsonIgnore
+    @Schema(hidden=true)
     private User user;
     @ManyToOne(
             fetch = FetchType.EAGER
     )
     @JoinColumn(name = "id_course")
+    @Schema(hidden=true)
     private Course course;
 
     /**

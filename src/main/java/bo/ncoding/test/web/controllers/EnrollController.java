@@ -36,7 +36,7 @@ public class EnrollController extends SystemController {
     }
 
     /**
-     * List of users with courses
+     * Detele enroll , for delete in swagger please remove idUSer an idcourse propertys
      *
      * @param list, list of courses enrolled
      * @return Message of success
