@@ -7,11 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 @Repository
 public interface CoursesRepository extends CrudRepository<Course, Integer>, PagingAndSortingRepository<Course, Integer> {
 

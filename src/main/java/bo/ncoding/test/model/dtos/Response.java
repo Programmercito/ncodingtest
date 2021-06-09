@@ -2,8 +2,10 @@ package bo.ncoding.test.model.dtos;
 
 /**
  *
- * @author Programmercito <devtecpro.org>
+ * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public class Response {
     private String message;
 

@@ -1,6 +1,7 @@
 package bo.ncoding.test.model.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.UniqueConstraint;
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
 @Entity
 @Table(name = "enroll", uniqueConstraints = {
@@ -39,7 +41,6 @@ public class Enroll {
             fetch = FetchType.EAGER
     )
     @JoinColumn(name = "id_course")
-    
     private Course course;
 
     /**

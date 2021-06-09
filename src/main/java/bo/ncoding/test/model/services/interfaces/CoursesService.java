@@ -6,7 +6,9 @@ import java.util.List;
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public interface CoursesService {
 
     public Course persist(Course course);

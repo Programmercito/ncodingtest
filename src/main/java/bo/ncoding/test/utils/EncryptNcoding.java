@@ -1,19 +1,14 @@
 package bo.ncoding.test.utils;
 
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
  *
- * @author Programmercito <devtecpro.org>
+ * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public class EncryptNcoding {
 
     public static final String AES = "AES";

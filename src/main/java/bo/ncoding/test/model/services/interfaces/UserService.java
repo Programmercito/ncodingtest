@@ -5,7 +5,9 @@ import bo.ncoding.test.model.entities.User;
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public interface UserService {
 
     public User persist(User user);

@@ -10,6 +10,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages={"bo"})
 @EntityScan("bo")
 @EnableJpaRepositories("bo")
+/**
+ *
+ * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
+ */
 public class Application {
 
 	public static void main(String[] args) {

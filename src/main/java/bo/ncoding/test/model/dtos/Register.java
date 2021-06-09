@@ -3,7 +3,9 @@ package bo.ncoding.test.model.dtos;
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public class Register {
     private String mail;
     private String password;

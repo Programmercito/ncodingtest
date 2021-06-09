@@ -20,7 +20,9 @@ import javax.persistence.Table;
 /**
  *
  * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 @Entity
 @Table(name = "courses")
 public class Course {

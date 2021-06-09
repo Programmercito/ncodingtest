@@ -4,8 +4,10 @@ import javax.persistence.Column;
 
 /**
  *
- * @author Programmercito
+ * @author Programmercito <twitter, facebook, linkedin, github>
+ * @version     1.0
  */
+
 public class Extras {
 
     private Integer idUser;
