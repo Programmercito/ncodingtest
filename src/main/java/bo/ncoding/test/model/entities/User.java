@@ -31,48 +31,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 public class User {
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the lastname
-     */
-    public String getLastname() {
-        return lastname;
-    }
-
-    /**
-     * @param lastname the lastname to set
-     */
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    /**
-     * @return the adress
-     */
-    public String getAdress() {
-        return adress;
-    }
-
-    /**
-     * @param adress the adress to set
-     */
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = true)
@@ -91,7 +49,7 @@ public class User {
     @Column(name = "adress")
     private String adress;
 
-    @OneToMany(mappedBy="user",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Enroll> enrolls;
 
     /**
@@ -104,8 +62,6 @@ public class User {
     /**
      * @param idUser the idUser to set
      */
-    @JsonIgnore
-    @JsonProperty(value = "id_user")
     public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
@@ -154,4 +110,50 @@ public class User {
     public void setEnrolls(List<Enroll> enrolls) {
         this.enrolls = enrolls;
     }
+
+    /**
+     * @return the name
+     */
+    @JsonInclude(Include.NON_NULL)
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the lastname
+     */
+    @JsonInclude(Include.NON_NULL)
+    public String getLastname() {
+        return lastname;
+    }
+
+    /**
+     * @param lastname the lastname to set
+     */
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    /**
+     * @return the adress
+     */
+    @JsonInclude(Include.NON_NULL)
+    public String getAdress() {
+        return adress;
+    }
+
+    /**
+     * @param adress the adress to set
+     */
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
 }
