@@ -43,6 +43,7 @@ public class Enroll {
             fetch = FetchType.LAZY
     )
     @JoinColumn(name = "id_course")
+    
     private Courses course;
 
     /**

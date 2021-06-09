@@ -49,6 +49,7 @@ public class User {
             orphanRemoval = true,
             fetch = FetchType.LAZY
     )
+    @JsonIgnore
     private List<Enroll> enrolls;
 
     /**

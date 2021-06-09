@@ -27,7 +27,7 @@ public class UserController extends SystemController {
     @GetMapping(path = "/user")
     public User list(Integer id) {
         User u = modelo.find(id);
-        u.getEnrolls();
+   
         return u;
     }
 
