@@ -26,7 +26,7 @@ public class UserDetails {
     private String lastname;
     @Column(name = "adress")
     private String adress;
-    @OneToOne(mappedBy = "userdetails")
+    @OneToOne(mappedBy = "userDetails")
     private User user;
 
     /**

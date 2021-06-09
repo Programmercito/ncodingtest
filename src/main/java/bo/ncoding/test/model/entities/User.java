@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -42,7 +44,10 @@ public class User {
     private String password;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_user")
-    private UserDetails userdetails;
+    private UserDetails userDetails;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_user")
+    private List<Enroll> enrolls;
 
     /**
      * @return the idUser
@@ -95,13 +100,28 @@ public class User {
      */
     @JsonInclude(Include.NON_NULL)
     public UserDetails getUserDetails() {
-        return userdetails;
+        return userDetails;
     }
 
     /**
      * @param userDetails the userDetails to set
      */
     public void setUserDetails(UserDetails userDetails) {
-        this.userdetails = userDetails;
+        this.userDetails = userDetails;
+    }
+
+    /**
+     * @return the enrolls
+     */
+    @JsonInclude(Include.NON_NULL)
+    public List<Enroll> getEnrolls() {
+        return enrolls;
+    }
+
+    /**
+     * @param enrolls the enrolls to set
+     */
+    public void setEnrolls(List<Enroll> enrolls) {
+        this.enrolls = enrolls;
     }
 }
