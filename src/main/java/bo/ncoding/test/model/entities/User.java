@@ -1,5 +1,7 @@
 package bo.ncoding.test.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
@@ -18,10 +21,12 @@ import javax.persistence.Table;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "sec_user", strategy = "increment")
+    @GeneratedValue(generator = "sec_user")
     @Basic(optional = false)
     @Column(name = "id_user")
-    private String idUser;
+    
+    private long idUser;
     @Column(name = "mail")
     private String mail;
     @Column(name = "password")
@@ -30,14 +35,16 @@ public class User {
     /**
      * @return the idUser
      */
-    public String getIdUser() {
+    public long getIdUser() {
         return idUser;
     }
 
     /**
      * @param idUser the idUser to set
      */
-    public void setIdUser(String idUser) {
+    @JsonIgnore
+    @JsonProperty(value = "id_user")
+    public void setIdUser(long idUser) {
         this.idUser = idUser;
     }
 
@@ -58,6 +65,8 @@ public class User {
     /**
      * @return the password
      */
+    @JsonIgnore
+    @JsonProperty(value = "password")
     public String getPassword() {
         return password;
     }
