@@ -21,6 +21,7 @@ public class CoursesServiceImpl implements CoursesService {
 
     @Override
     public Course persist(Course course) {
+        course.setIdCourse(Integer.MIN_VALUE);
         return data.save(course);
     }
 
